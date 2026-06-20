@@ -100,9 +100,9 @@ export default function PhoneScene() {
           floatDuration={4.2}
           style={{
             position: "absolute",
-            width: "175px",
+            width: "250px",
             left: "-220px",
-            top: "50%",
+            top: "10%",
             transform: "translateY(-50%)",
             transformStyle: "preserve-3d",
           }}
@@ -147,9 +147,9 @@ export default function PhoneScene() {
           floatDuration={3.8}
           style={{
             position: "absolute",
-            width: "175px",
+            width: "250px",
             right: "-220px",
-            top: "50%",
+            top: "10%",
             transform: "translateY(-50%)",
             transformStyle: "preserve-3d",
           }}

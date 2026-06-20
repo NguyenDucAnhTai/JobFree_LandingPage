@@ -29,24 +29,16 @@ const itemVariants: Variants = {
 export default function HeroContent() {
   return (
     <motion.div
-      className="flex flex-col items-start gap-7 max-w-xl"
+      className="flex flex-col items-start gap-6 lg:gap-7 max-w-xl"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      {/* Badge */}
-      <motion.div variants={itemVariants}>
-        <span className="inline-flex items-center gap-2 bg-brand-black text-white text-[11px] font-bold tracking-[0.12em] uppercase px-4 py-1.5 rounded-full font-display">
-          <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow" />
-          Nền tảng nhân sự ngắn hạn
-        </span>
-      </motion.div>
-
       {/* Headline */}
       <motion.h1
         variants={itemVariants}
-        className="font-display font-black text-brand-black leading-[1.04] tracking-[-0.035em]"
-        style={{ fontSize: "clamp(2.4rem, 4.5vw, 3.8rem)" }}
+        className="font-display font-black text-brand-black leading-[0.95] tracking-[-0.04em]"
+        style={{ fontSize: "clamp(3.2rem, 5.5vw, 5.5rem)" }}
       >
         Thiếu người
         <br />
@@ -58,14 +50,12 @@ export default function HeroContent() {
             className="absolute -bottom-1 left-0 h-[5px] bg-brand-black rounded-full"
             initial={{ scaleX: 0, originX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ delay: 0.9, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 0.9, duration: 0.6 }}
             style={{ width: "100%" }}
           />
-        </span>{" "}
-        phù hợp
+        </span>
         <br />
-        nhanh hơn cùng{" "}
-        <span className="text-brand-black relative">JobFree.</span>
+        trong vài phút
       </motion.h1>
 
       {/* Description */}
@@ -81,7 +71,7 @@ export default function HeroContent() {
       </motion.p>
 
       {/* CTA Buttons */}
-      <motion.div variants={itemVariants} className="flex flex-wrap gap-3 pt-1">
+      <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-2">
         <motion.button
           className="group relative overflow-hidden rounded-full bg-brand-black px-8 py-4 font-display font-bold text-[0.92rem] border-2 border-brand-black"
           whileHover={{ scale: 1.03, y: -2 }}

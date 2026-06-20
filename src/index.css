@@ -3,31 +3,83 @@
 @tailwind utilities;
 
 @layer base {
-  * {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
+
   html {
     scroll-behavior: smooth;
+    font-family: "Be Vietnam Pro", system-ui, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
   }
+
   body {
     margin: 0;
-    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-family: "Be Vietnam Pro", system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    color: #111827;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+
     overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Be Vietnam Pro", system-ui, sans-serif;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+  }
+
+  h1 {
+    font-weight: 800;
+  }
+
+  h2 {
+    font-weight: 700;
+  }
+
+  h3,
+  h4 {
+    font-weight: 600;
+  }
+
+  button {
+    font-family: "Be Vietnam Pro", system-ui, sans-serif;
+    font-weight: 600;
+  }
+
+  input,
+  textarea,
+  select {
+    font-family: "Be Vietnam Pro", system-ui, sans-serif;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: "Montserrat", system-ui, sans-serif;
+    font-family: "Be Vietnam Pro", system-ui, sans-serif;
   }
+
   .glass {
     background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.5);
   }
+
   .glass-dark {
     background: rgba(10, 10, 10, 0.55);
     backdrop-filter: blur(16px) saturate(180%);
