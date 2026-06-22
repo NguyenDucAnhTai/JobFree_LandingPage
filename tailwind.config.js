@@ -30,11 +30,23 @@ export default {
       colors: {
         brand: {
           yellow: "#FFD400",
-          "yellow-light": "#FFE566",
-          "yellow-dark": "#E6BF00",
-          black: "#0A0A0A",
-          "black-soft": "#1A1A1A",
-          gray: "#6B6B6B",
+          "yellow-soft": "#FFE875",
+          "yellow-muted": "#FFF3B8",
+          amber: "#B87500",
+          black: "#0B0B0B",
+        },
+        surface: {
+          cream: "#FFFBED",
+          "cream-strong": "#FFF1B8",
+          sand: "#F7F7F3",
+          navy: "#080A12",
+          card: "#FFFFFF",
+        },
+        ink: {
+          DEFAULT: "#101010",
+          soft: "#3F3A2B",
+          muted: "#746A4A",
+          amber: "#6B5A16",
         },
       },
 
@@ -44,10 +56,18 @@ export default {
       },
 
       boxShadow: {
-        phone:
-          "0 40px 80px -20px rgba(0,0,0,0.35), 0 20px 40px -10px rgba(0,0,0,0.2)",
-        card: "0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08)",
-        glow: "0 0 80px 30px rgba(255,212,0,0.4)",
+        sticker: "0 5px 0 rgba(16,16,16,0.9), 0 18px 42px rgba(64,48,0,0.16)",
+        "card-soft": "0 18px 55px rgba(16,16,16,0.10)",
+        floating: "0 24px 70px rgba(16,16,16,0.18)",
+        phone: "0 34px 90px rgba(16,16,16,0.28)",
+      },
+      maxWidth: {
+        readable: "62ch",
+        "readable-sm": "52ch",
+        wide: "88rem",
+      },
+      screens: {
+        "3xl": "1800px",
       },
     },
   },

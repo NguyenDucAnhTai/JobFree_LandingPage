@@ -1,34 +1,21 @@
-import { motion } from "framer-motion";
-import PhoneScene from "./PhoneScene";
 import HeroContent from "./HeroContent";
-import logo from "../../assets/logo.png";
+import PhoneScene from "./PhoneScene";
 
 export default function Hero() {
   return (
     <section
-      className="relative min-h-screen flex flex-col overflow-hidden"
+      id="top"
+      className="relative isolate grid w-full min-h-[100svh] items-center overflow-hidden px-page-x pb-hero-y pt-[calc(theme(spacing.nav-h)+2.25rem)]"
       style={{
-        backgroundColor: "#FFD700",
+        background:
+          "linear-gradient(150deg, #FFD700 0%, #D9AA00 30%, #F5D142 65%, #fcd967 100%)",
       }}
     >
       <Background />
 
-      <Navbar />
-
-      <div className="relative z-10 flex-1 flex items-center">
-        <div className="w-full max-w-page mx-auto px-page-x py-hero-y">
-          <div className="grid lg:grid-cols-[46%_54%] gap-10 lg:gap-12 items-center">
-            <div className="flex justify-start">
-              <HeroContent />
-            </div>
-
-            <div className="flex justify-center lg:justify-end">
-              <div className="w-full max-w-[580px]">
-                <PhoneScene />
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="relative z-10 grid w-full items-center gap-8 lg:grid-cols-[minmax(460px,38vw)_minmax(0,1fr)] lg:gap-[clamp(2rem,4vw,5rem)] xl:grid-cols-[minmax(520px,36vw)_minmax(0,1fr)] 2xl:grid-cols-[minmax(560px,34vw)_minmax(0,1fr)]">
+        <HeroContent />
+        <PhoneScene />
       </div>
     </section>
   );
@@ -36,151 +23,113 @@ export default function Hero() {
 
 function Background() {
   return (
-    <>
-      {/* Reduce brightness */}
+    <div className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
+      {/* Texture rất nhẹ */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
-          background: "rgba(17, 17, 17, 0.055)",
+          backgroundImage: "radial-gradient(#101010 1px, transparent 1px)",
+          backgroundSize: "30px 30px",
         }}
       />
 
-      {/* Subtle warm layer */}
+      {/* Ánh sáng lớn từ góc trái trên giống reference */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute -left-[22vw] -top-[34vh] h-[92vh] w-[72vw] rounded-full"
         style={{
-          background: "rgba(184, 134, 11, 0.08)",
+          background:
+            "radial-gradient(circle, rgba(255,255,245,0.92) 0%, rgba(255,245,178,0.58) 32%, rgba(255,212,0,0.18) 58%, transparent 76%)",
+          filter: "blur(42px)",
         }}
       />
 
-      {/* Soft texture */}
+      {/* Mảng sáng lớn quét chéo qua hero */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.12]"
+        className="absolute -left-[8vw] -top-[2vh] h-[42vh] w-[122vw] rotate-[12deg]"
         style={{
-          backgroundImage:
-            "radial-gradient(rgba(17,17,17,0.16) 1px, transparent 1px)",
-          backgroundSize: "34px 34px",
+          clipPath: "polygon(0 0, 100% 16%, 100% 82%, 0 54%)",
+          background:
+            "linear-gradient(90deg, rgba(255,255,235,0.58) 0%, rgba(255,248,190,0.34) 38%, rgba(255,230,85,0.12) 70%, transparent 100%)",
+          filter: "blur(2px)",
         }}
       />
 
-      {/* Soft border shade at bottom, not gradient */}
+      {/* Tia sáng phụ 1 */}
       <div
-        className="absolute left-0 right-0 bottom-0 h-[120px] pointer-events-none"
+        className="absolute -left-[12vw] top-[16vh] h-[18vh] w-[120vw] rotate-[12deg]"
         style={{
-          background: "rgba(17, 17, 17, 0.04)",
+          clipPath: "polygon(0 8%, 100% 0, 100% 54%, 0 100%)",
+          background:
+            "linear-gradient(90deg, rgba(255,255,230,0.26) 0%, rgba(255,247,180,0.22) 45%, transparent 100%)",
+          filter: "blur(4px)",
         }}
       />
 
-      {/* Brand decorative block */}
+      {/* Tia sáng phụ 2 thấp hơn, nhẹ hơn */}
       <div
-        className="absolute pointer-events-none rounded-[48px]"
+        className="absolute -left-[14vw] top-[34vh] h-[15vh] w-[118vw] rotate-[12deg]"
         style={{
-          width: "360px",
-          height: "360px",
-          right: "-140px",
-          top: "130px",
-          background: "rgba(17, 17, 17, 0.045)",
-          transform: "rotate(18deg)",
+          clipPath: "polygon(0 18%, 100% 0, 100% 58%, 0 100%)",
+          background:
+            "linear-gradient(90deg, rgba(255,244,160,0.18) 0%, rgba(255,255,230,0.15) 46%, transparent 100%)",
+          filter: "blur(6px)",
         }}
       />
 
+      {/* Spotlight sau phone trái */}
       <div
-        className="absolute pointer-events-none rounded-[40px]"
+        className="absolute left-[55%] top-[27%] h-[430px] w-[430px] -translate-x-1/2 rounded-full"
         style={{
-          width: "280px",
-          height: "280px",
-          left: "-120px",
-          bottom: "80px",
-          background: "rgba(255, 255, 255, 0.12)",
-          transform: "rotate(-14deg)",
+          opacity: 0.72,
+          background:
+            "radial-gradient(circle, rgba(255,255,235,0.56) 0%, rgba(255,232,92,0.22) 38%, transparent 74%)",
+          filter: "blur(38px)",
         }}
       />
-    </>
-  );
-}
 
-function Navbar() {
-  const navLinks = [
-    "Giải pháp",
-    "Cách hoạt động",
-    "Dành cho doanh nghiệp",
-    "Dành cho Worker",
-    "Bảng giá",
-  ];
-
-  return (
-    <motion.header
-      className="relative z-20 w-full"
-      initial={{ opacity: 0, y: -16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-    >
+      {/* Spotlight sau phone phải */}
       <div
-        className="border-b"
+        className="absolute right-[2%] top-[13%] h-[580px] w-[580px] rounded-full"
         style={{
-          background: "rgba(255, 215, 0, 0.88)",
-          borderColor: "rgba(17, 17, 17, 0.14)",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
-          boxShadow: "0 6px 20px rgba(17,17,17,0.08)",
+          opacity: 0.78,
+          background:
+            "radial-gradient(circle, rgba(255,255,240,0.64) 0%, rgba(255,232,90,0.22) 40%, transparent 75%)",
+          filter: "blur(42px)",
         }}
-      >
-        <div className="max-w-page mx-auto px-page-x h-nav-h flex items-center justify-between gap-6">
-          <div className="flex items-center gap-8 flex-shrink-0">
-            <a href="#" className="flex items-center">
-              <img
-                src={logo}
-                alt="JobFree"
-                className="h-14 w-auto object-contain"
-                draggable={false}
-              />
-            </a>
+      />
 
-            <nav className="hidden lg:flex items-center gap-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  className="text-[15px] font-medium tracking-[-0.01em] text-brand-black/80 hover:text-brand-black transition-colors duration-200 whitespace-nowrap"
-                >
-                  {link}
-                </a>
-              ))}
-            </nav>
-          </div>
+      {/* Glow dưới cụm phone */}
+      <div
+        className="absolute bottom-[3%] right-[3%] h-[220px] w-[820px] rounded-full"
+        style={{
+          opacity: 0.46,
+          background:
+            "radial-gradient(ellipse, rgba(255,248,200,0.56) 0%, rgba(255,212,0,0.2) 42%, transparent 74%)",
+          filter: "blur(36px)",
+        }}
+      />
 
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <button className="hidden sm:flex items-center gap-1 text-[0.82rem] font-semibold text-brand-black/75 hover:text-brand-black font-sans px-3 py-2 rounded-full hover:bg-brand-black/[0.08] transition-all">
-              Trở thành đối tác
-              <svg
-                className="w-3.5 h-3.5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2.5}
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
+      {/* Vignette vàng/nâu, không dùng xám/đen quá mạnh */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at 18% 26%, transparent 0%, transparent 32%, rgba(92,63,0,0.10) 76%, rgba(70,48,0,0.16) 100%)",
+        }}
+      />
 
-            <button className="text-[0.82rem] font-semibold text-brand-black/75 hover:text-brand-black font-sans px-3 py-2 rounded-full hover:bg-brand-black/[0.08] transition-all">
-              Đăng nhập
-            </button>
+      {/* Tối nhẹ riêng phía phải để phone trắng nổi hơn */}
+      <div
+        className="absolute -right-[16%] top-[6%] h-[720px] w-[720px] rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(72,48,0,0.16) 0%, rgba(72,48,0,0.08) 42%, transparent 74%)",
+          filter: "blur(46px)",
+        }}
+      />
 
-            <motion.button
-              className="bg-brand-black text-[#FFD700] font-display font-bold text-[0.8rem] px-5 py-2.5 rounded-full"
-              whileHover={{ scale: 1.04, y: -1 }}
-              whileTap={{ scale: 0.96 }}
-              style={{
-                boxShadow:
-                  "0 10px 24px rgba(17,17,17,0.22), inset 0 1px 0 rgba(255,255,255,0.12)",
-              }}
-            >
-              Đăng ký pilot
-            </motion.button>
-          </div>
-        </div>
-      </div>
-    </motion.header>
+      {/* Fade đáy */}
+      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-surface-cream/88 to-transparent" />
+    </div>
   );
 }

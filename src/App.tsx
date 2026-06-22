@@ -1,11 +1,9 @@
-import ProblemSection from "./components/CaseStudy/ProblemSection";
-import Hero from "./components/Hero/Hero";
+import HomePage from "./pages/HomePage";
 
 export default function App() {
   return (
-    <main>
-      <Hero />
-      <ProblemSection />
+    <main className="min-h-screen">
+      <HomePage />
     </main>
   );
 }
